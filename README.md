@@ -1,5 +1,4 @@
-
-### Learning git and selenium with java
+# Learning Git and TestNG
 
 ## install git
 
