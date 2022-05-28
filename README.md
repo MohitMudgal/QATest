@@ -23,3 +23,8 @@
 # To run parallel tests
 
 mvn clean test -Dsurefire.suiteXmlFiles=testng.xml
+
+
+# To run Single Test
+
+mvn clean test -Dtest=DataDrivenTest
