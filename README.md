@@ -1,5 +1,5 @@
 
-### Leanring tit and selenium with java
+### Leanring git and selenium with java
 
 ## install git
 
