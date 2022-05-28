@@ -14,5 +14,7 @@
 
 - git pull
 
+- git push
+
 - git checkout branch-name
 
