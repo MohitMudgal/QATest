@@ -18,8 +18,7 @@ public class AppTest {
 
     @Before
     public void setupSeleneiumTest(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        driver = WebDriverManager.firefoxdriver().create();
     }
 
     @Test
@@ -39,7 +38,15 @@ public class AppTest {
 
     @Test
     public void testMainPageLink(){
-        
+        driver.get("https://www.wikipedia.com");
+
+        driver.findElement(By.name("search")).sendKeys("Gold");
+
+        driver.findElement(By.cssSelector("button.pure-button")).click();
+
+        String headingText = driver.findElement(By.id("firstHeading")).getText();
+
+        assertEquals("Gold", headingText);
     }
 
     @After
