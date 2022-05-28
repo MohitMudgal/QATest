@@ -19,7 +19,7 @@ public class AppTest {
     }
 
     @Test
-    public void testWikipedia(){
+    public void testWikipediaSelenium(){
 
         driver.get("https://www.wikipedia.com");
 
@@ -29,12 +29,12 @@ public class AppTest {
 
         String headingText = driver.findElement(By.id("firstHeading")).getText();
 
-        Assert.assertEquals("Selenium", headingText);
+        Assert.assertEquals("Silver", headingText);
 
     }
 
-    @Test
-    public void testMainPageLink(){
+    @Test(dependsOnMethods = "testWikipediaSelenium")
+    public void testWikipediaGold(){
         driver.get("https://www.wikipedia.com");
 
         driver.findElement(By.name("search")).sendKeys("Gold");
