@@ -1,20 +1,54 @@
 package com.qagenic.automation;
 
-import static org.junit.Assert.assertTrue;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
-import org.junit.Test;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-{
-    /**
-     * Rigorous Test :-)
-     */
-    @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+public class AppTest {
+
+    private WebDriver driver;
+
+    @BeforeClass
+    public void setupSeleneiumTest(){
+        driver = WebDriverManager.firefoxdriver().create();
     }
+
+    @Test
+    public void testWikipediaSelenium(){
+
+        driver.get("https://www.wikipedia.com");
+
+        driver.findElement(By.name("search")).sendKeys("Selenium");
+
+        driver.findElement(By.cssSelector("button.pure-button")).click();
+
+        String headingText = driver.findElement(By.id("firstHeading")).getText();
+
+        Assert.assertEquals("Silver", headingText);
+
+    }
+
+    @Test(dependsOnMethods = "testWikipediaSelenium")
+    public void testWikipediaGold(){
+        driver.get("https://www.wikipedia.com");
+
+        driver.findElement(By.name("search")).sendKeys("Gold");
+
+        driver.findElement(By.cssSelector("button.pure-button")).click();
+
+        String headingText = driver.findElement(By.id("firstHeading")).getText();
+
+        Assert.assertEquals("Gold", headingText);
+    }
+
+    @AfterClass
+    public void closeSeleniumTest(){
+        driver.close();
+    }
+
 }

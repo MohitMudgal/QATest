@@ -1,5 +1,4 @@
-
-### Leanring git and selenium with java
+# Learning Git and TestNG
 
 ## install git
 
@@ -20,4 +19,11 @@
 - git checkout branch-name
 
 
+# To run parallel tests
 
+mvn clean test -Dsurefire.suiteXmlFiles=testng.xml
+
+
+# To run Single Test
+
+mvn clean test -Dtest=DataDrivenTest
