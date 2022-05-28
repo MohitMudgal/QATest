@@ -20,4 +20,6 @@
 - git checkout branch-name
 
 
+# To run parallel tests
 
+mvn clean test -Dsurefire.suiteXmlFiles=testng.xml

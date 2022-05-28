@@ -3,6 +3,7 @@ package com.qagenic.automation;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -30,7 +31,9 @@ public class DataDrivenTest {
 
         String headingText = driver.findElement(By.id("firstHeading")).getText();
 
-        Assert.assertEquals(headingText, expectedResult);
+        Assert.assertEquals(headingText, expectedResult, "The heading text is not correct");
+
+        Reporter.log("The heading text is correct. Checked for " + serachTerm);
 
     }
 
