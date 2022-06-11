@@ -21,11 +21,11 @@ public class DataDrivenTest {
     }
 
     @Test(dataProvider = "getMetals")
-    public void testWikipediaSelenium(String serachTerm, String expectedResult){
+    public void testWikipediaSelenium(String searchterm, String expectedResult){
 
         driver.get("https://www.wikipedia.com");
 
-        driver.findElement(By.name("search")).sendKeys(serachTerm);
+        driver.findElement(By.name("search")).sendKeys(searchterm);
 
         driver.findElement(By.cssSelector("button.pure-button")).click();
 
@@ -33,7 +33,7 @@ public class DataDrivenTest {
 
         Assert.assertEquals(headingText, expectedResult, "The heading text is not correct");
 
-        Reporter.log("The heading text is correct. Checked for " + serachTerm);
+        Reporter.log("The heading text is correct. Checked for " + searchterm);
 
     }
 
